@@ -1,6 +1,6 @@
 <?php
 
-require_once ('database.php');
+require_once ('database/database.php');
 
 try {
 	$db = DB::getInstance();
