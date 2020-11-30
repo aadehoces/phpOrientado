@@ -55,7 +55,7 @@
 Al hacer clic en el botón "Registrarse", confirma que acepta nuestros Términos de uso y Política de privacidad.</small>                                          
 </form>
 </article> <!-- card-body end .// -->
-<div class="border-top card-body text-center">¿Tienes cuenta? <a href="sesion.php">Inicar sesion</a></div>
+<div class="border-top card-body text-center">¿Tienes cuenta? <a href="sesion.php">Iniciar sesion</a></div>
 </div> <!-- card.// -->
 </div> <!-- col.//-->
 
