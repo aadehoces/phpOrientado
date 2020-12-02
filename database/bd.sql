@@ -4,7 +4,7 @@ use pizzeria;
 create table usuario (
 id int auto_increment primary key,
 nombre varchar(30),
-apellido varchar(50)
+apellido varchar(50),
 pass varchar(50),
 telefono varchar(15),
 email varchar(30),
