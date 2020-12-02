@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form method="post" action="">
+				<form method="post" action="botones.php">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -56,7 +56,7 @@
 						<input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" name="login" value="Login" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>

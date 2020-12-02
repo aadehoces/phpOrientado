@@ -39,7 +39,7 @@
 	<h4 class="card-title mt-2">Registro</h4>
 </header>
 <article class="card-body">
-<form>
+<form method="POST" action="botones.php">
 	<div class="form-row">
 		<div class="col form-group">
 			<label>Nombre </label>   
@@ -66,7 +66,7 @@
 	    <input class="form-control" type="password" name="Contraseña">
 	</div>  
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Registrar  </button>
+        <button type="submit" class="btn btn-primary btn-block" name="registro"> Registrar  </button>
     </div>     
     <small class="text-muted">
 Al hacer clic en el botón "Registrarse", confirma que acepta nuestros Términos de uso y Política de privacidad.</small>                                          
