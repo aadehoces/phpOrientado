@@ -2,15 +2,15 @@
 
 class Extravaganza extends PrepararPizza {
 
-    public function amasar() {
+    public function amasar($masa) {
         $this->pizza->setMasa('Gruesa');
     }
 
-    public function prepararBorde() {
+    public function prepararBorde($borde) {
         $this->pizza->setBorde('Con queso');
     }    
 
-    public function añadirIngredientes() {
+    public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes(['Salsa tomate', 'mozzarella', 'vacuno', 'bacon', 'peperoni', 'pimiento verde', 'champiñon', 'aceitunas']);
     }
 

@@ -14,7 +14,7 @@ class Pizza {
         $this->borde = $borde;
     }
 
-    public function setIngredientes(array $ingredientes) {
+    public function setIngredientes($ingredientes) {
         $this->ingredientes = $ingredientes;
     }    
 

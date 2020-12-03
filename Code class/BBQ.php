@@ -2,15 +2,15 @@
 
 class BBQ extends PrepararPizza {
 
-    public function amasar() {
+    public function amasar($masa) {
         $this->pizza->setMasa('Fina');
     }
 
-    public function prepararBorde() {
+    public function prepararBorde($borde) {
         $this->pizza->setBorde('Sin queso');
     }    
 
-    public function añadirIngredientes() {
+    public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes(['salsa bbq', 'pollo', 'havarty', 'bacon', 'maiz']);
     }
 

@@ -11,8 +11,8 @@ $cliente = new Cliente();
 $cliente->encarga(new BBQ());
 $cliente->encarga(new Carbonara());
 $cliente->encarga(new Extravaganza());
-$cliente->encarga(new BBQ());
-$cliente->encarga(new AlGusto());
+//$cliente->encarga(new BBQ());
+$cliente->encarga(new AlGusto(), 'fina', 'quuse', array('yotk', 'tomate'));
 /* Si creas un cliente nuevo lo introduce todo en el mismo array
 $client2 = new Cliente();
 $client2->encarga(new Carbonara());

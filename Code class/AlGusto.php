@@ -2,16 +2,16 @@
 
 class AlGusto extends PrepararPizza {
 
-    public function amasar() {
-        $this->pizza->setMasa('');
+    public function amasar($masa) {
+        $this->pizza->setMasa($masa);
     }
 
-    public function prepararBorde() {
-        $this->pizza->setBorde('');
+    public function prepararBorde($borde) {
+        $this->pizza->setBorde($borde);
     }    
 
-    public function añadirIngredientes() {
-        $this->pizza->setIngredientes(['']);
+    public function añadirIngredientes($ingredientes) {
+        $this->pizza->setIngredientes($ingredientes);
     }
 
     public function añadirArray() {
