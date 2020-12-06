@@ -4,7 +4,7 @@
 
 class BBQ extends PrepararPizza {
 
-    public function nombrePizza($nombre) {
+    public function nombrePizza() {
         $this->pizza->setNombre('BBQ');
     }
 
@@ -19,7 +19,7 @@ class BBQ extends PrepararPizza {
     public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes(['salsa bbq', 'pollo', 'havarty', 'bacon', 'maiz']);
     }
-
+  
 }
 
 ?>

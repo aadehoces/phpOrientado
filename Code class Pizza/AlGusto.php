@@ -4,7 +4,7 @@
 
 class AlGusto extends PrepararPizza {
 
-    public function nombrePizza($nombre) {
+    public function nombrePizza() {
         $this->pizza->setNombre('Al_gusto');
     }
 
@@ -19,7 +19,11 @@ class AlGusto extends PrepararPizza {
     public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes($ingredientes);
     }
-
+    /*
+    public function añadirArray() {
+        $this->Apizzas['Al_gusto'] = $this->pizza;
+    }
+    */
 }
 
 ?>

@@ -4,27 +4,34 @@
 
 class Pizza {
 
-    private $nombre;
-    private $masa;
-    private $borde;
-    private $ingredientes = [];  
+    public $_IDpizza;
+    private $_nombre;
+    private $_masa;
+    private $_borde;
+    private $_ingredientes = [];
+    static $_contador=0;
 
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
+    public function __construct() {
+        self::$_contador += 1;  
+        $this->_IDpizza = self::$_contador;       
+    }
+
+    public function setNombre($nombre) {        
+        $this->_nombre = $nombre;
     }
     
     public function setMasa($masa) {
-        $this->masa = $masa;
+        $this->_masa = $masa;
     }
 
     public function setBorde($borde) {
-        $this->borde = $borde;
+        $this->_borde = $borde;
     }
 
     public function setIngredientes($ingredientes) {
-        $this->ingredientes = $ingredientes;
+        $this->_ingredientes = $ingredientes;
     }    
-    
+
 }
 
 ?>

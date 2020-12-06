@@ -3,8 +3,8 @@
 // Clase ConcreteBuilder (implementación de la interfaz Builder - construye y reúne las partes necesarias para construir los productos).
 
 class Extravaganza extends PrepararPizza {
-
-    public function nombrePizza($nombre) {
+   
+    public function nombrePizza() {
         $this->pizza->setNombre('Extravaganza');
     }
 
