@@ -1,6 +1,6 @@
 <?php
- require_once 'conexion.php';
- require_once 'usuario.php';
+ require_once '../database/conexion.php';
+ require_once '../database/usuario.php';
  
  class consulta {
 
