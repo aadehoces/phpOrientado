@@ -1,6 +1,6 @@
 <?php
  require_once 'conexion.php';
- require_once 'models/usuario.php';
+ require_once 'usuario.php';
  
  class consulta {
 
@@ -20,45 +20,66 @@
             $this->email=$usuario->email;
             $this->direccion=$usuario->direccion;
         }
+        if ($email==$this->email){
+            return true;
+        } else {
+            return false;
+        }
+    
     }
 
     function registro($nom,$ape,$pass,$tel,$email,$dire){
-        $usuario = new Usuario();
-        $usuario->nombre=$nom;
-        $usuario->apellido=$ape;
-        $usuario->pass=$pass;
-        $usuario->telefono=$tel;
-        $usuario->email=$email;
-        $usuario->direccion=$dire;
-        $usuario->save();
+        $user = Usuario::find_by_email($email);
+        if($user->email==$email){
+            return false;
+        } else {
+            return true;
+            $usuario = Usuario::create(array(
+                'nombre' => $nom,
+                'apellido' => $ape,
+                'pass' => $pass,
+                'telefono' => $tel,
+                'email' => $email,
+                'direccion' => $dire
+            ));
+            //$usuario = new Usuario();
+            //$usuario->nombre=$nom;
+            //$usuario->apellido=$ape;
+            //$usuario->pass=$pass;
+            //$usuario->telefono=$tel;
+            //$usuario->email=$email;
+            //$usuario->direccion=$dire;
+            //$usuario->save();
+        }
     }
 
     function getNombre(){
-        echo $this->nombre;
+        return $this->nombre;
     }
 
     function getApellido(){
-        echo $this->apellido;
+        return $this->apellido;
     }
 
     function getTelefono(){
-        echo $this->telefono;
+        return $this->telefono;
     }
 
     function getEmail(){
-        echo $this->email;
+        return $this->email;
     }
 
     function getDireccion(){
-        echo $this->direccion;
+        return $this->direccion;
     }
 
  }
 
  $prueba = new consulta();
- $prueba->registro("prueba","numero 2","1234","1234567","prueba2@email.com","wdwd 13");
- $prueba->logeo("prueba2@email.com","1234");
- $prueba->getNombre();
- $prueba->getEmail();
+ //$prueba->registro("prueba","numero 1","1234","987654321","prueba2@email.com","wdwd 13");
+ $prueba->logeo("prueba@email.com","1234");
+ echo "Nombre: ".$prueba->getNombre();
+ echo "<br/>";
+ echo "Email: ".$prueba->getEmail();
 
 ?>

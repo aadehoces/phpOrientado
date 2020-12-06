@@ -2,12 +2,11 @@ create database pizzeria;
 use pizzeria;
 #Se crea la tabla
 create table usuario (
-id int auto_increment primary key,
 nombre varchar(30),
 apellido varchar(50),
 pass varchar(50),
 telefono varchar(15),
-email varchar(30),
+email varchar(30) primary key,
 direccion varchar(30));
 #Un insert para hacer pruebas
 insert into usuario (nombre,apellido,pass,email,telefono,direccion) values ('prueba','numero 1','1234','prueba@email.com','987654321','C/wkdw Nº12');
