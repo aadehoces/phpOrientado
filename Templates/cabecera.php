@@ -43,11 +43,10 @@
         <a class="nav-link" href="carrito.php"><span class="letra"><i class="fas fa-shopping-cart"></i>(0)</a>
       </li>      
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <form method="POST">
-        <button class="btn  my-2 my-sm-0 btn-outline-dark mr-2" type="submit">Cerrar sesión</button>
-      </form>
-      
+    
+    <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <button class="btn  my-2 my-sm-0 btn-outline-dark mr-2" type="submit" name="Cerrar">Cerrar sesión</button>
+            
     </form>
   </div>
 </nav>
