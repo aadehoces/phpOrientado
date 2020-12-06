@@ -1,3 +1,6 @@
+<?php
+	include '../controlers/registrar.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +29,16 @@
 </head>
 <body>
 <header>
-	<img class="w-100" src="img/banner.jpg">
+	<img class="w-100" src="../img/banner.jpg">
 </header>
+<?php 
+		if (isset($mensaje) && !empty($mensaje) ) {?>
+<div class="alert alert-danger" role="alert">
+  		<?php echo $mensaje; 
+  		$mensaje="";
+  		?>
+	</div>
+<?php } ?>
 <div class="container mt-4">
 
 
@@ -39,7 +50,7 @@
 	<h4 class="card-title mt-2">Registro</h4>
 </header>
 <article class="card-body">
-<form method="POST" action="botones.php">
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 	<div class="form-row">
 		<div class="col form-group">
 			<label>Nombre </label>   
@@ -47,12 +58,12 @@
 		</div> 
 		<div class="col form-group">
 			<label>Apellidos</label>
-		  	<input type="text" class="form-control" name="Apellidos">
+		  	<input type="text" class="form-control" name="apellidos">
 		</div> 
 	</div> 
 	<div class="form-group">
 		<label>Email </label>
-		<input type="email" class="form-control" placeholder="">
+		<input type="email" class="form-control" name="email">
 		<small class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie</small>
 	</div> 
 	<div class="form-row">
@@ -63,7 +74,7 @@
 	</div> 
 	<div class="form-group">
 		<label>Contraseña</label>
-	    <input class="form-control" type="password" name="Contraseña">
+	    <input class="form-control" type="password" name="contraseña">
 	</div>  
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block" name="registro"> Registrar  </button>
@@ -83,7 +94,7 @@ Al hacer clic en el botón "Registrarse", confirma que acepta nuestros Términos
 <br>
 
 <?php
-include 'Templates/footer.php'
+include 'footer.php'
 
 ?>
 

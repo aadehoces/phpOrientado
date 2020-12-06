@@ -1,3 +1,21 @@
+<?php
+require_once '../administracion/botones.php';
+require_once '../administracion/validacion.php';
+	if ($_POST) {
+		if (isset($_POST['login'])) {
+			$validar=new validar();
+			$mensaje=$validar->val_email($_POST['email']);
+			if ($mensaje=="true") {
+				$mensaje=$validar->val_contraseña($_POST['contraseña']);
+				if ($mensaje=="true") {
+					//$botones=new botones();
+					//$botones->login($_POST['email'],$_POST['Contraseña']);
+				}
+				
+			}
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +44,18 @@
 </head>
 <body>
 <header>
-	<img class="w-100" src="img/banner.jpg">
+	<img class="w-100" src="../img/banner.jpg">
 </header>
-
+<?php 
+		if (isset($mensaje) && !empty($mensaje) ) {?>
+<div class="alert alert-danger" role="alert">
+  		<?php echo $mensaje; 
+  		$mensaje="";
+  		?>
+	</div>
+<?php } ?>
 <div class="container mt-5 mb-4">
+	
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
@@ -41,7 +67,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form method="post" action="botones.php">
+				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -73,5 +99,5 @@
 
 
 <?php
-include 'Templates/footer.php';
+include 'footer.php';
 ?>
