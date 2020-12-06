@@ -14,4 +14,4 @@ insert into usuario (nombre,apellido,pass,email,telefono,direccion) values ('pru
 select * from usuario;
 #Crear el usuario que solo tendrá permisos para mirar esta base de datos
 create user 'user1'@'localhost' identified by 'Aa123456_';
-grant select on pizzeria.usuario to 'user1'@'localhost' identified by 'Aa123456_';
+grant select on pizzeria.usuario to 'user1'@'localhost';
