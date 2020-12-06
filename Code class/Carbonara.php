@@ -1,6 +1,12 @@
 <?php
 
+// Clase ConcreteBuilder (implementación de la interfaz Builder - construye y reúne las partes necesarias para construir los productos).
+
 class Carbonara extends PrepararPizza {
+
+    public function nombrePizza($nombre) {
+        $this->pizza->setNombre('Carbonara');
+    }
 
     public function amasar($masa) {
         $this->pizza->setMasa('Fina');
@@ -13,10 +19,7 @@ class Carbonara extends PrepararPizza {
     public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes(['nata', 'mozzarella', 'bacon', 'champiñones', 'cebolla']);
     }
-
-    public function añadirArray() {
-        $this->Apizzas['Carbonara'] = $this->pizza;
-    }
+   
 }
 
 ?>

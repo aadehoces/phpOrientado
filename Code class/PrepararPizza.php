@@ -1,16 +1,20 @@
 <?php
 
+//Clase Builder (define una interfaz abstracta para crear productos).
+
 abstract class PrepararPizza {
+
     protected $pizza;    
-    protected $Apizzas=array();
 
     public function crearPizza() {
         $this->pizza = new Pizza();
-    }    
+    }
 
     public function getPizza() {
         return $this->pizza;
     }
+
+    abstract public function nombrePizza($nombre);
 
     abstract public function amasar($masa);
 
@@ -18,12 +22,6 @@ abstract class PrepararPizza {
 
     abstract public function añadirIngredientes($ingredientes);
 
-    abstract public function añadirArray();
-
-    public function getPizzas() {
-        return $this->Apizzas;
-    } 
-   
 }
 
 ?>
