@@ -75,11 +75,4 @@
 
  }
 
- $prueba = new consulta();
- //$prueba->registro("prueba","numero 1","1234","987654321","prueba2@email.com","wdwd 13");
- $prueba->logeo("prueba@email.com","1234");
- echo "Nombre: ".$prueba->getNombre();
- echo "<br/>";
- echo "Email: ".$prueba->getEmail();
-
 ?>
