@@ -1,9 +1,38 @@
 <?php 
- require_once '../lib/activerecord/ActiveRecord.php';
- ActiveRecord\Config::initialize(function($cfg)
- {
-    $cfg->set_model_directory('models');
-    $cfg->set_connections(array(
-    'development' => 'mysql://user1:Aa123456_@localhost/pizzeria'));
- }); 
+
+// Singleton to connect db.
+class ConnectDb {
+   // Hold the class instance.
+   private static $instance = null;
+   private $conn;
+   
+   private $host = 'localhost';
+   private $user = 'user1';
+   private $pass = 'Aa123456_';
+   private $name = 'pizzeria';
+    
+   // The db connection is established in the private constructor.
+   private function __construct()
+   {
+     $this->conn = new PDO("mysql:host={$this->host};
+     dbname={$this->name}", $this->user,$this->pass,
+     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+   }
+   
+   public static function getInstance()
+   {
+     if(!self::$instance)
+     {
+       self::$instance = new ConnectDb();
+     }
+    
+     return self::$instance;
+   }
+   
+   public function getConnection()
+   {
+     return $this->conn;
+   }
+ }
+
 ?>

@@ -1,8 +1,8 @@
 <?php
+
  require_once '../database/conexion.php';
- require_once '../database/usuario.php';
  
- class consulta {
+ class conexionDB {
 
     private $nombre;
     private $apellido;
@@ -10,17 +10,25 @@
     private $email;
     private $direccion;
 
+    function __construct() {}
+
     function logeo($email, $pass){
-        $usuarios = usuario::find_by_sql('SELECT * FROM usuario WHERE email = ? 
-            AND pass = ? ;',array($email,$pass));
-        foreach($usuarios as $usuario){
-            $this->nombre=$usuario->nombre;
-            $this->apellido=$usuario->apellido;
-            $this->telefono=$usuario->telefono;
-            $this->email=$usuario->email;
-            $this->direccion=$usuario->direccion;
-        }
-        if ($email==$this->email){
+        $db = ConnectDb::getInstance();
+        $conexion=$db->getConnection();
+        $consulta=$conexion->prepare('SELECT * FROM usuario where email= :email and pass= :pass');
+        $consulta->bindValue(':email',$email);
+        $consulta->bindValue(':pass',$pass);
+        $consulta->execute();
+        $users = $consulta->fetchAll(PDO::FETCH_OBJ);
+        $numero_registro=$consulta->rowCount();
+        if($numero_registro!=0){
+            foreach($users as $value){
+                $this->nombre=$value->nombre;
+                $this->apellido=$value->apellido; 
+                $this->telefono=$value->telefono;
+                $this->email=$value->direccion;
+                $this->direccion=$value->direccion;
+            }
             return true;
         } else {
             return false;
@@ -29,28 +37,11 @@
     }
 
     function registro($nom,$ape,$pass,$tel,$email,$dire){
-        $user = Usuario::find_by_email($email);
-        if($user->email==$email){
-            return false;
-        } else {
-            return true;
-            $usuario = Usuario::create(array(
-                'nombre' => $nom,
-                'apellido' => $ape,
-                'pass' => $pass,
-                'telefono' => $tel,
-                'email' => $email,
-                'direccion' => $dire
-            ));
-            //$usuario = new Usuario();
-            //$usuario->nombre=$nom;
-            //$usuario->apellido=$ape;
-            //$usuario->pass=$pass;
-            //$usuario->telefono=$tel;
-            //$usuario->email=$email;
-            //$usuario->direccion=$dire;
-            //$usuario->save();
-        }
+        $db = ConnectDb::getInstance();
+        $conexion=$db->getConnection();
+        $consulta=$conexion->prepare('insert into usuario (nombre,apellido,pass,email,telefono,direccion)
+         values (?,?,?,?,?,?)');
+        $consulta->execute([$nom,$ape,$pass,$email,$tel,$dire]);
     }
 
     function getNombre(){
@@ -73,6 +64,12 @@
         return $this->direccion;
     }
 
- }
+}
+
+//$prueba=new conexionDB();
+//$prueba->registro("prueba","numero 2","1234","987654321","prueba2@email.com","kbjdjwd 12");
+//$prueba->logeo("prueb@email.com","1234");
+//echo($prueba->getDireccion());
+//echo"<br/>";
 
 ?>
