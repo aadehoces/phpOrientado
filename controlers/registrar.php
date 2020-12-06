@@ -1,6 +1,6 @@
 <?php
-require_once '../administracion/botones.php';
-require_once '../administracion/validacion.php';
+require_once 'botones.php';
+require_once 'validacion.php';
 	if ($_POST) {
 		if (isset($_POST['registro'])) {
 			$validar=new validar();

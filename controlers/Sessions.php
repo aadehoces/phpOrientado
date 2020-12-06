@@ -2,7 +2,8 @@
  
 class Session {
  
-    function __construct() {
+    function __construct($id=null) {
+        session_id($id);
         session_start();
     }
  
@@ -27,22 +28,15 @@ class Session {
             unset($_SESSION[$name]);
         }
     }
- 
+    
+    public function get_id(){
+        return session_id();
+    }
     function destroySession() {
         session_destroy();
     }
 }
 
-// Prueba 
 
-$session = new Session();
- 
-$session->setAttribute("usuario", "fernando");
-
-$session->deleteAttribute("usuario");
-
-echo $session->getAttribute("usuario") . "<br/>"; 
-
-$session->destroySession();
 
 ?>

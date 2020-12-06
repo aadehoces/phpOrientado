@@ -1,18 +1,14 @@
 <?php
+require_once 'Cookie.php';
 class botones
 {
 	
 	function __construct(){}
 
 
-	public function registro(){
-		
-	}
-	public function login($email,$contraseña){
-
-		$consulta = new consulta();
-		$consulta->logeo($email,$contraseña);
-		
+	public function cerrar(){
+		$cookie=new Cookies();
+		$cookie->delete_cookie("id_session");
 	}
 }
 

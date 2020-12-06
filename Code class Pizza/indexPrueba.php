@@ -1,5 +1,4 @@
 <?php
-
 require_once 'Cliente.php';
 require_once 'PrepararPizza.php';
 require_once 'Pizza.php';
@@ -14,13 +13,17 @@ $cliente->encarga(new Carbonara());
 $cliente->encarga(new Extravaganza());
 $cliente->encarga(new AlGusto(), 'fina', 'con queso', array('york', 'tomate'));
 
-//print_r($cliente->getPizzas());
+echo $cliente->contarPizzas();
+print_r($cliente->getPizzas());
 
-print_r($cliente);
+$cliente->deletePizza('2');
+
+print_r($cliente->getPizzas());
+
+//print_r($cliente);
 
 /* 
 $client2 = new Cliente();
 $client2->encarga(new Carbonara());
 */
-
 ?>

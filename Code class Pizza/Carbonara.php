@@ -4,7 +4,7 @@
 
 class Carbonara extends PrepararPizza {
 
-    public function nombrePizza($nombre) {
+    public function nombrePizza() {
         $this->pizza->setNombre('Carbonara');
     }
 
@@ -19,7 +19,7 @@ class Carbonara extends PrepararPizza {
     public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes(['nata', 'mozzarella', 'bacon', 'champiñones', 'cebolla']);
     }
-   
+
 }
 
 ?>
