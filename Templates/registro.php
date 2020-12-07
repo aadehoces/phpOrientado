@@ -67,9 +67,13 @@
 		<small class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie</small>
 	</div> 
 	<div class="form-row">
-		<div class="form-group col-md-12">
+		<div class="col form-group ">
 		  <label>Direccion</label>
 		  <input type="text" class="form-control" name="direccion">
+		</div> 
+		<div class="col form-group ">
+		  <label>Telefono</label>
+		  <input type="number" class="form-control" name="telefono">
 		</div> 
 	</div> 
 	<div class="form-group">

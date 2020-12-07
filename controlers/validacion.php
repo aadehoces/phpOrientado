@@ -54,5 +54,16 @@ class validar
   				return true;
 		}
 	}
+	public function val_telefono($telefono=null){
+		if (empty($telefono)) {
+			return "Introduce telefono";
+		}else{
+			if (preg_match("/^[0-9]{9}$/",$telefono)) {
+  				return true;
+			}else{
+				return "Telefono no válidos";
+			}
+		}
+	}
 }
 ?>
