@@ -1,7 +1,5 @@
 <?php
 include 'Templates/cabecera.php';
-?>
-<br>
-<?php
+include 'Templates/mostrar.php';
 include 'Templates/footer.php';
 ?>
