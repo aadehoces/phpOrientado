@@ -19,11 +19,10 @@ class AlGusto extends PrepararPizza {
     public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes($ingredientes);
     }
-    /*
-    public function añadirArray() {
-        $this->Apizzas['Al_gusto'] = $this->pizza;
+    
+    public function precioPizza() {
+        $this->pizza->setPrecio('20,20');
     }
-    */
 }
 
 ?>
