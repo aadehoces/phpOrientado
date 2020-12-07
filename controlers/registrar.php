@@ -1,5 +1,4 @@
 <?php
-require_once 'botones.php';
 require_once 'validacion.php';
 require_once 'consultas.php';
 	if ($_POST) {
@@ -17,14 +16,14 @@ require_once 'consultas.php';
 							if ($mensaje=="true") {
 								$mensaje=$validar->val_telefono($_POST['telefono']);
 								if ($mensaje=="true") {
-									$consultas=new conexionDB();
+									$consultas=new Consultas();
 									$mensaje=$consultas->registro($_POST['nombre'],$_POST['apellidos'],$_POST['contraseña'],$_POST['telefono'],$_POST['email'],$_POST['direccion']);
 									if ($mensaje=="false") {
-										$mensaje="El email ya está registrado."
+										$mensaje="El email ya está registrado.";
 									}elseif($mensaje=="true"){
 										header('Location: ../index.php');
 									}else{
-										$mensaje="Ourrió algún error en el registro."
+										$mensaje="Ourrió algún error en el registro.";
 									}
 									
 								}

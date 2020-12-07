@@ -67,7 +67,9 @@
             $consulta2->bindValue(':telefono',$tel);
             $consulta2->bindValue(':direccion',$dire);
             $consulta2->execute();
+
         }
+        return "true";
     }
 
 }
