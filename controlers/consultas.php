@@ -1,6 +1,7 @@
 <?php
 
  require_once '../database/conexion.php';
+ require_once 'Cliente.php';
  
  class conexionDB {
 
@@ -29,6 +30,10 @@
                 $this->email=$value->direccion;
                 $this->direccion=$value->direccion;
             }
+            $cliente = new Cliente($this->nombre,$this->apellido,$this->email,
+             $this->direccion,$this->telefono);
+            return $cliente;
+            
         } else {
             return false;
         }
@@ -60,26 +65,9 @@
         }
     }
 
-    function getNombre(){
-        return $this->nombre;
-    }
-
-    function getApellido(){
-        return $this->apellido;
-    }
-
-    function getTelefono(){
-        return $this->telefono;
-    }
-
-    function getEmail(){
-        return $this->email;
-    }
-
-    function getDireccion(){
-        return $this->direccion;
-    }
-
 }
+
+$prueba = new conexionDB();
+$prueba->logeo('prueba@email.com','1234');
 
 ?>

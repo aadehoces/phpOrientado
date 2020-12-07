@@ -4,21 +4,16 @@
 
 class Cliente {
 
-    private $_clienteID;
     private $_nombre;
     private $_apellidos;
     private $_email;
     private $_direccion;
-    private $_telefono;    
-    static $_contador=0;
+    private $_telefono;
     private $_pizzas= array();
     
 
     
     public function __construct($nombre, $apellidos ,$email, $direccion, $telefono) {
-        self::$contador += 1; 
-        $this->clienteID = self::$contador; 
-        $this->Aclientes[$this->clienteID] = array();
 
         $this->_nombre = $nombre;
         $this->_apellidos = $apellidos;
@@ -70,6 +65,26 @@ class Cliente {
             return $id;
         }
         
+    }
+
+    function getNombre(){
+        return $this->_nombre;
+    }
+
+    function getApellido(){
+        return $this->_apellidos;
+    }
+
+    function getTelefono(){
+        return $this->_telefono;
+    }
+
+    function getEmail(){
+        return $this->_email;
+    }
+
+    function getDireccion(){
+        return $this->_direccion;
     }
 
 }
