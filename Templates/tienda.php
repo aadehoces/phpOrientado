@@ -64,7 +64,7 @@
 					<input type="checkbox" name="pimiento" value="pimiento"> Pimientos<br>
 					<input type="checkbox" name="cebolla" value="cebolla"> Cebolla<br>
 					<input type="checkbox" name="tomate" value="tomate"> Tomate<br>
-					<input type="checkbox" name="kebab" value="kebab"> Cane de kebab<br>
+					<input type="checkbox" name="kebab" value="kebab"> Carne de kebab<br>
 					
 				</div>
 				
