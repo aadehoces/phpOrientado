@@ -54,6 +54,10 @@ class Cliente {
         }
     }
 
+    public function borrarPizzas(){
+        $this->_pizzas = array();
+    }
+
     public function get_lastId(){
         foreach ($this->_pizzas as $key => $pizza) {
             $id=$pizza->getId();
