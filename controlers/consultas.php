@@ -16,12 +16,15 @@
     function logeo($email, $pass){
         $db = ConnectDb::getInstance();
         $conexion=$db->getConnection();
+        //Usamos el email y la password para comprobar si los datos son correctos
         $consulta=$conexion->prepare('SELECT * FROM usuario where email= :email and pass= :pass');
         $consulta->bindValue(':email',$email);
         $consulta->bindValue(':pass',$pass);
         $consulta->execute();
         $users = $consulta->fetchAll(PDO::FETCH_OBJ);
         $numero_registro=$consulta->rowCount();
+        //Si el select devuelve algun registro, se guardan los 
+        // datos del select en las variables
         if($numero_registro!=0){
             foreach($users as $value){
                 $this->nombre=$value->nombre;
@@ -30,6 +33,7 @@
                 $this->email=$value->direccion;
                 $this->direccion=$value->direccion;
             }
+            //Con los datos del SELECT creamos el objeto cliente
             $cliente = new Cliente($this->nombre,$this->apellido,$this->email,
              $this->direccion,$this->telefono);
             return $cliente;
@@ -43,6 +47,7 @@
     function registro($nom,$ape,$pass,$tel,$email,$dire){
         $db = ConnectDb::getInstance();
         $conexion=$db->getConnection();
+        //Vemos si el email introducido ya existe
         $consulta1=$conexion->prepare('SELECT * FROM usuario where email= :email');
         $consulta1->bindValue(':email',$email);
         $consulta1->execute();
@@ -66,5 +71,6 @@
     }
 
 }
+
 
 ?>

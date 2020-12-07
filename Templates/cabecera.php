@@ -1,5 +1,5 @@
 <?php
-require_once 'controlers/botones.php';
+
 require_once 'controlers/Sessions.php';
 require_once 'controlers/Cliente.php';
 require_once 'controlers/Cookie.php';
@@ -64,6 +64,9 @@ if (isset($_COOKIE["id_session"])) {
       $sesion->destroySession();
       $cookie=new Cookies();
       $cookie->delete_cookie("id_session"); 
+      header('Location: index.php');
+    }elseif (isset($_POST["confirmar"])) {
+      $Cliente->borrarPizza();
       header('Location: index.php');
     }
 

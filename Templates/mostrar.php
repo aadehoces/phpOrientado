@@ -51,7 +51,7 @@ if ($Cliente->contarPizzas()==0) {?>
 						echo $Ingrediente." ";
 					};
 					echo "</td>
-				      <td>".$value->getPrecio();
+				      <td>".$value->getPrecio()."€";
 					echo "</td>
 				      <td><button class='btn  my-2 my-sm-0 bg-danger mr-2' name='eliminar'>Eliminar</button>";
 				    echo "</td>
@@ -67,11 +67,14 @@ if ($Cliente->contarPizzas()==0) {?>
 				?>
 				<td colspan="4"></td>
 				<td class="text-right">Total:</td>
-				<td><?php echo $total?></td>
+				<td><?php echo $total."€"?></td>
 				</tbody>
 				</table>
 				<br>
-				<button class="btn  my-2 my-sm-0 bg-primary mr-2">Pagar</button>
+				<form action="pago.php" form="POST">
+					<button class="btn  my-2 my-sm-0 bg-primary mr-2" name="pago">Pagar</button>
+				</form>
+				
 			</div>
 		</div>
 		
