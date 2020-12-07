@@ -39,9 +39,26 @@
     function registro($nom,$ape,$pass,$tel,$email,$dire){
         $db = ConnectDb::getInstance();
         $conexion=$db->getConnection();
-        $consulta=$conexion->prepare('insert into usuario (nombre,apellido,pass,email,telefono,direccion)
-         values (?,?,?,?,?,?)');
-        $consulta->execute([$nom,$ape,$pass,$email,$tel,$dire]);
+        $consulta1=$conexion->prepare('SELECT * FROM usuario where email= :email');
+        $consulta1->bindValue(':email',$email);
+        $consulta1->execute();
+        $numero_registro=$consulta1->rowCount();
+        //Si ya hay una cuenta con ese correo no se crea la cuenta
+        if($numero_registro!=0){
+            return false;
+        }
+        //Si no hay nadie con ese correo se puede crear la cuenta
+        else {
+            $consulta2=$conexion->prepare('INSERT INTO usuario (nombre,apellido,pass,email,telefono,direccion)
+             VALUES (:nombre, :apellido, :pass, :email, :telefono, :direccion)');
+            $consulta2->bindValue(':nombre',$nom);
+            $consulta2->bindValue(':apellido',$ape);
+            $consulta2->bindValue(':pass',$pass);
+            $consulta2->bindValue(':email',$email);
+            $consulta2->bindValue(':telefono',$tel);
+            $consulta2->bindValue(':direccion',$dire);
+            $consulta2->execute();
+        }
     }
 
     function getNombre(){
@@ -68,7 +85,7 @@
 
 //$prueba=new conexionDB();
 //$prueba->registro("prueba","numero 2","1234","987654321","prueba2@email.com","kbjdjwd 12");
-//$prueba->logeo("prueb@email.com","1234");
+//$prueba->logeo("prueba2@email.com","1234");
 //echo($prueba->getDireccion());
 //echo"<br/>";
 
