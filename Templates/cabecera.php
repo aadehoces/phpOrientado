@@ -1,3 +1,75 @@
+<?php
+require_once 'controlers/botones.php';
+require_once 'controlers/Sessions.php';
+require_once 'controlers/Cliente.php';
+require_once 'controlers/pizza/Pizza.php';
+require_once 'controlers/pizza/PrepararPizza.php';
+
+require_once 'controlers/pizza/Carbonara.php';
+require_once 'controlers/pizza/Extravaganza.php';
+require_once 'controlers/pizza/BBQ.php';
+require_once 'controlers/pizza/AlGusto.php';
+if ($_POST) {
+    if (isset($_POST["Cerrar"])) {
+      $botones=new botones();
+      $botones->cerrar();
+
+    }
+
+
+  }
+
+if (isset($_COOKIE["id_session"])) {
+  $sesion=new Session($_COOKIE["id_session"]);
+  $Cliente=$sesion->getAttribute("cliente");
+  if ($_POST) {
+    if (isset($_POST["encargar"])) {
+      if ($_POST["encargar"]=="AlGusto") {
+        $Ingredientes = array();
+        if (isset($_POST["queso"])) {
+          $Ingredientes[]=$_POST["queso"];
+        }
+        if (isset($_POST["champiñon"])) {
+          $Ingredientes[]=$_POST["champiñon"];
+        }
+        if (isset($_POST["bacon"])) {
+          $Ingredientes[]=$_POST["bacon"];
+        }
+        if (isset($_POST["jamon"])) {
+          $Ingredientes[]=$_POST["jamon"];
+        }
+        if (isset($_POST["aceitunas"])) {
+          $Ingredientes[]=$_POST["aceitunas"];
+        }
+        if (isset($_POST["piminetos"])) {
+          $Ingredientes[]=$_POST["piminetos"];
+        }
+        if (isset($_POST["cebolla"])) {
+          $Ingredientes[]=$_POST["cebolla"];
+        }
+        if (isset($_POST["tomate"])) {
+          $Ingredientes[]=$_POST["tomate"];
+        }
+        if (isset($_POST["kebab"])) {
+          $Ingredientes[]=$_POST["kebab"];
+        }
+
+        $Cliente->encarga(new AlGusto(),$_POST["masa"],$_POST["bordes"],$Ingredientes);
+      }else{
+        $Cliente->encarga(new $_POST["encargar"]());
+      }
+      $sesion->setAttribute("cliente", $Cliente);
+      
+    }elseif (isset($_POST['eliminar'])) {
+      $Cliente->deletePizza($_POST['id']);
+       $sesion->setAttribute("cliente", $Cliente);
+    }
+
+  }
+  
+}else{
+  header('Location: Templates/sesion.php');
+}?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +112,9 @@
         <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="carrito.php"><span class="letra"><i class="fas fa-shopping-cart"></i>(0)</a>
+        <a class="nav-link" href="carrito.php"><span class="letra"><i class="fas fa-shopping-cart"></i>(<?php
+        echo $Cliente->contarPizzas();
+          ?>)</a>
       </li>      
     </ul>
     

@@ -10,14 +10,14 @@ class Session {
     function setAttribute($name, $value) {
 
         if (is_string($name)) {
-            $_SESSION[$name] = $value;
+            $_SESSION[$name] = serialize($value);
         }
     }
  
     function getAttribute($name) {
 
         if (isset($_SESSION[$name])) {   
-            return $_SESSION[$name];
+            return unserialize($_SESSION[$name]);
         }
         return null;
     }
