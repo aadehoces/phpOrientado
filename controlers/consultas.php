@@ -29,7 +29,6 @@
                 $this->email=$value->direccion;
                 $this->direccion=$value->direccion;
             }
-            return true;
         } else {
             return false;
         }
@@ -82,11 +81,5 @@
     }
 
 }
-
-//$prueba=new conexionDB();
-//$prueba->registro("prueba","numero 2","1234","987654321","prueba2@email.com","kbjdjwd 12");
-//$prueba->logeo("prueba2@email.com","1234");
-//echo($prueba->getDireccion());
-//echo"<br/>";
 
 ?>

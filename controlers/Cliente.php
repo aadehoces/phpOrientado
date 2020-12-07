@@ -6,27 +6,27 @@ class Cliente {
 
     private $_clienteID;
     private $_nombre;
-    private $_apellido;    
+    private $_apellidos;
     private $_email;
     private $_direccion;
     private $_telefono;    
     static $_contador=0;
     private $_pizzas= array();
 
-    /*
-    public function __construct($nombre, $apellido, $email, $direccion, $telefono) {
+    
+    public function __construct($nombre, $apellidos ,$email, $direccion, $telefono) {
         self::$contador += 1; 
         $this->clienteID = self::$contador; 
         $this->Aclientes[$this->clienteID] = array();
 
         $this->_nombre = $nombre;
-        $this->_apellido = $apellido;
+        $this->_apellidos = $apellidos;
         $this->_email = $email;
-        $this->_direccion = $direccion; 
-        $this->_telefono = $telefono;              
+        $this->_telefono = $telefono;
+        $this->_direccion = $direccion;        
+        
     }
-    */
-    
+
     public function encarga(PrepararPizza $builder, $masa=null, $borde=null, $ingredientes=null) {
         $builder->crearPizza(self::get_lastId());
         $builder->nombrePizza();
