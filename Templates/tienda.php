@@ -44,12 +44,12 @@
 					<h5>Bordes:</h5>
 					<input type="radio" id="rellenos" name="bordes" value="Rellenos" checked>
 					<label for="rellenos">Rellenos de queso</label><br>
-					<input type="radio" id="no-rellenos" name="bordes" value="noRellenos">
+					<input type="radio" id="no-rellenos" name="bordes" value="No Rellenos">
 					<label for="norellenos">Sin relleno</label><br>
 				</div>
 				<div class="col-md-6 col-12 col-sm-12 col-lg-4"> 
 					<h5>Masa:</h5>
-					<input type="radio" id="fina" name="masa" value="fina" checked>
+					<input type="radio" id="fina" name="masa" value="Fina" checked>
 					<label for="fin">Masa Fina</label><br>
 					<input type="radio" id="no-rellenos" name="masa" value="gorda">
 					<label for="gorda">Masa Gorda</label><br>

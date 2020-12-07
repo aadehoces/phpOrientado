@@ -19,18 +19,33 @@ class Pizza {
     public function setNombre($nombre) {        
         $this->_nombre = $nombre;
     }
+    public function getNombre() {        
+        return $this->_nombre;
+    }
     
     public function setMasa($masa) {
         $this->_masa = $masa;
+    }
+     public function getMasa() {        
+        return $this->_masa;
     }
 
     public function setBorde($borde) {
         $this->_borde = $borde;
     }
+     public function getBorde() {        
+        return $this->_borde;
+    }
 
     public function setIngredientes($ingredientes) {
         $this->_ingredientes = $ingredientes;
-    }    
+    } 
+    public function getIngredientes(){
+        return $this->_ingredientes;
+    } 
+    public function getId(){
+        return $this->_IDpizza;
+    }
 
 }
 
