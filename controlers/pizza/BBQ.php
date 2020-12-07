@@ -19,7 +19,10 @@ class BBQ extends PrepararPizza {
     public function añadirIngredientes($ingredientes) {
         $this->pizza->setIngredientes(['salsa bbq', 'pollo', 'havarty', 'bacon', 'maiz']);
     }
-  
+    
+    public function precioPizza() {
+        $this->pizza->setPrecio('13,45');
+    }
 }
 
 ?>

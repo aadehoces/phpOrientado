@@ -7,14 +7,14 @@ class Session {
         session_start();
     }
  
-    function setAttribute($name, $value) {
+    public function setAttribute($name, $value) {
 
         if (is_string($name)) {
             $_SESSION[$name] = serialize($value);
         }
     }
  
-    function getAttribute($name) {
+    public function getAttribute($name) {
 
         if (isset($_SESSION[$name])) {   
             return unserialize($_SESSION[$name]);
@@ -22,7 +22,7 @@ class Session {
         return null;
     }
  
-    function deleteAttribute($name) {
+    public function deleteAttribute($name) {
 
         if (isset($_SESSION[$name])) {
             unset($_SESSION[$name]);
@@ -32,7 +32,7 @@ class Session {
     public function get_id(){
         return session_id();
     }
-    function destroySession() {
+    public function destroySession() {
         session_destroy();
     }
 }

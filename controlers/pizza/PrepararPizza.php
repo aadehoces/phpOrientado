@@ -23,6 +23,8 @@ abstract class PrepararPizza {
 
     abstract public function añadirIngredientes($ingredientes);
 
+    abstract public function precioPizza();
+
 }
 
 ?>

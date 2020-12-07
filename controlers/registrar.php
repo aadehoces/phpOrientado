@@ -1,6 +1,7 @@
 <?php
 require_once 'botones.php';
 require_once 'validacion.php';
+require_once 'consultas.php';
 	if ($_POST) {
 		if (isset($_POST['registro'])) {
 			$validar=new validar();
@@ -14,7 +15,12 @@ require_once 'validacion.php';
 						if ($mensaje=="true") {
 							$mensaje=$validar->val_contraseña($_POST['contraseña']);
 							if ($mensaje=="true") {
-								//registrar
+								$mensaje=$validar->val_telefono($_POST['telefono']);
+								if ($mensaje=="true") {
+									$consultas=new conexionDB();
+									$consultas->registro($_POST['nombre'],$_POST['apellidos'],$_POST['contraseña'],$_POST['telefono'],$_POST['email'],$_POST['direccion']);
+									header('Location: ../index.php');
+								}
 							}
 						}
 					}

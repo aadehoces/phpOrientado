@@ -20,6 +20,9 @@ class Carbonara extends PrepararPizza {
         $this->pizza->setIngredientes(['nata', 'mozzarella', 'bacon', 'champiñones', 'cebolla']);
     }
 
+    public function precioPizza() {
+        $this->pizza->setPrecio('13,95');
+    }
 }
 
 ?>

@@ -24,6 +24,7 @@ if ($Cliente->contarPizzas()==0) {?>
 				      <th scope="col">Nombre</th>
 				      <th scope="col">Masa</th>
 				      <th scope="col">Bordes</th>
+				      <th scope="col">Precio</th>
 				      <th scope="col">Ingredientes</th>
 				      <th scope="col"></th>
 				    </tr>
@@ -42,6 +43,7 @@ if ($Cliente->contarPizzas()==0) {?>
 				      <td>".$value->getNombre()."</td>
 				      <td>".$value->getMasa()."</td>
 				      <td>".$value->getBorde()."</td>
+				      <td>".$value->getPrecio()."</td>
 				      <td>";
 				      $Ingredientes=$value->getIngredientes();
 				      foreach ($Ingredientes as $key2 => $Ingrediente) {

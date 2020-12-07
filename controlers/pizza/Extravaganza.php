@@ -20,6 +20,9 @@ class Extravaganza extends PrepararPizza {
         $this->pizza->setIngredientes(['Salsa tomate', 'mozzarella', 'vacuno', 'bacon', 'peperoni', 'pimiento verde', 'champiñon', 'aceitunas']);
     }
 
+    public function precioPizza() {
+        $this->pizza->setPrecio('14,50');
+    }
 }
 
 ?>

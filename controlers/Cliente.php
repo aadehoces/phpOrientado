@@ -10,7 +10,6 @@ class Cliente {
     private $_direccion;
     private $_telefono;
     private $_pizzas= array();
-    
 
     
     public function __construct($nombre, $apellidos ,$email, $direccion, $telefono) {
@@ -29,14 +28,13 @@ class Cliente {
         $builder->amasar($masa);
         $builder->prepararBorde($borde);        
         $builder->añadirIngredientes($ingredientes);
+        $builder->precioPizza();
 
         $this->_pizzas[]=$builder->getPizza();
-
     }
     
     public function getPizzas() {
-        return $this->_pizzas;
-        
+        return $this->_pizzas; 
     }
 
     public function contarPizzas() {
@@ -55,6 +53,7 @@ class Cliente {
             }      
         }
     }
+
     public function get_lastId(){
         foreach ($this->_pizzas as $key => $pizza) {
             $id=$pizza->getId();
@@ -63,8 +62,7 @@ class Cliente {
             return 0;
         }else{
             return $id;
-        }
-        
+        }        
     }
 
     function getNombre(){
