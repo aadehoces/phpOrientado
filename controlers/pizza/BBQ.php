@@ -21,7 +21,7 @@ class BBQ extends PrepararPizza {
     }
     
     public function precioPizza() {
-        $this->pizza->setPrecio('13,45');
+        $this->pizza->setPrecio('13.45');
     }
 }
 

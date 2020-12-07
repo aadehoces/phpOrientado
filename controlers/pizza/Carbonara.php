@@ -21,7 +21,7 @@ class Carbonara extends PrepararPizza {
     }
 
     public function precioPizza() {
-        $this->pizza->setPrecio('13,95');
+        $this->pizza->setPrecio('13.95');
     }
 }
 

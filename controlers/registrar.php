@@ -18,8 +18,15 @@ require_once 'consultas.php';
 								$mensaje=$validar->val_telefono($_POST['telefono']);
 								if ($mensaje=="true") {
 									$consultas=new conexionDB();
-									$consultas->registro($_POST['nombre'],$_POST['apellidos'],$_POST['contraseña'],$_POST['telefono'],$_POST['email'],$_POST['direccion']);
-									header('Location: ../index.php');
+									$mensaje=$consultas->registro($_POST['nombre'],$_POST['apellidos'],$_POST['contraseña'],$_POST['telefono'],$_POST['email'],$_POST['direccion']);
+									if ($mensaje=="false") {
+										$mensaje="El email ya está registrado."
+									}elseif($mensaje=="true"){
+										header('Location: ../index.php');
+									}else{
+										$mensaje="Ourrió algún error en el registro."
+									}
+									
 								}
 							}
 						}
