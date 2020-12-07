@@ -10,18 +10,18 @@ require_once 'Cliente.php';
 			$mensaje=$validar->val_email($_POST['email']);
 			if ($mensaje=="true") {
 				$mensaje=$validar->val_contraseña($_POST['contraseña']);
-				if ($mensaje=="true") {
+				if ($mensaje=="false") {
 					$login = new conexionDB();
 					$logeado=$login->logeo($_POST['email'],$_POST['contraseña']);
-					if ($logeado=="true") {
+					if ($logeado=="false") {
+						$mensaje="Usuario o contrseña incorrecta";
+					}else{
 						$sesion=new session();
 						$cookie=new Cookies();
 						$cookie->create_cookie("id_session",$sesion->get_id());
 						$cliente=new cliente();
 						$sesion->setAttribute("cliente", $cliente);
 						header('Location: ../index.php');
-					}else{
-						$mensaje="Usuario o contrseña incorrecta";
 					}
 				}
 				

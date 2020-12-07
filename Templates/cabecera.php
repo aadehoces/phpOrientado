@@ -10,11 +10,7 @@ require_once 'controlers/pizza/Extravaganza.php';
 require_once 'controlers/pizza/BBQ.php';
 require_once 'controlers/pizza/AlGusto.php';
 if ($_POST) {
-    if (isset($_POST["Cerrar"])) {
-      $botones=new botones();
-      $botones->cerrar();
-
-    }
+    
 
 
   }
@@ -63,6 +59,11 @@ if (isset($_COOKIE["id_session"])) {
     }elseif (isset($_POST['eliminar'])) {
       $Cliente->deletePizza($_POST['id']);
        $sesion->setAttribute("cliente", $Cliente);
+    }elseif (isset($_POST["Cerrar"])) {
+      $sesion->destroySession();
+      $botones=new botones();
+      $botones->cerrar();
+
     }
 
   }
