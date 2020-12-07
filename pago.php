@@ -19,8 +19,9 @@ if ($_POST) {
 <footer class="page-footer font-small bg-dark pt-4 fixed-bottom">
 	<?php
 include 'Templates/footer2.php';
+	
+	}else{
+		header('Location: index.php');
 	}
-}else{
-	header('Location: index.php');
 }
 ?>

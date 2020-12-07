@@ -67,11 +67,11 @@ if ($Cliente->contarPizzas()==0) {?>
 				?>
 				<td colspan="4"></td>
 				<td class="text-right">Total:</td>
-				<td><?php echo $total."€"?></td>
+				<td colspan="2"><?php echo $total."€"?></td>
 				</tbody>
 				</table>
 				<br>
-				<form action="pago.php" form="POST">
+				<form action="pago.php" method="POST">
 					<button class="btn  my-2 my-sm-0 bg-primary mr-2" name="pago">Pagar</button>
 				</form>
 				

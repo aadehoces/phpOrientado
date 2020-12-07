@@ -66,8 +66,10 @@ if (isset($_COOKIE["id_session"])) {
       $cookie->delete_cookie("id_session"); 
       header('Location: index.php');
     }elseif (isset($_POST["confirmar"])) {
-      $Cliente->borrarPizza();
+      $Cliente->borrarPizzas();
+      $sesion->setAttribute("cliente", $Cliente);
       header('Location: index.php');
+
     }
 
   }

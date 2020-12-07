@@ -55,7 +55,7 @@ class Cliente {
     }
 
     public function borrarPizzas(){
-        $this->_pizzas = array();
+        unset($this->_pizzas );
     }
 
     public function get_lastId(){
