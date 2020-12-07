@@ -51,7 +51,7 @@ class Pizza {
     public function setPrecio($precio) {
         $this->_precio = $precio;
     } 
-    public function getPrecio($precio) {
+    public function getPrecio() {
        return $this->_precio;
     } 
 }
