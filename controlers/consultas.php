@@ -3,7 +3,7 @@
  require_once '../database/conexion.php';
  require_once 'Cliente.php';
  
- class conexionDB {
+ class Consultas {
 
     private $nombre;
     private $apellido;
@@ -66,8 +66,5 @@
     }
 
 }
-
-$prueba = new conexionDB();
-$prueba->logeo('prueba@email.com','1234');
 
 ?>
