@@ -72,6 +72,5 @@
 
 }
 
-echo date("H:i:s", strtotime("+30 minutes"));
 
 ?>
