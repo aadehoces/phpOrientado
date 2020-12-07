@@ -30,7 +30,8 @@ class Cliente {
     */
 
     public function encarga(PrepararPizza $builder, $masa=null, $borde=null, $ingredientes=null) {
-        $builder->crearPizza(self::contarPizzas());
+        
+        $builder->crearPizza();
         $builder->nombrePizza();
         $builder->amasar($masa);
         $builder->prepararBorde($borde);        
