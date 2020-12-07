@@ -7,8 +7,8 @@ abstract class PrepararPizza {
 
     protected $pizza;  
 
-    public function crearPizza() {
-        $this->pizza = new Pizza();
+    public function crearPizza($id) {
+        $this->pizza = new Pizza($id);
     }
 
     public function getPizza() {

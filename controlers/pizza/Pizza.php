@@ -11,9 +11,8 @@ class Pizza {
     private $_ingredientes = [];
     static $_contador=0;
 
-    public function __construct() {
-        self::$_contador += 1;  
-        $this->_IDpizza = self::$_contador;       
+    public function __construct($id) {
+        $this->_IDpizza = $id+1;       
     }
 
     public function setNombre($nombre) {        

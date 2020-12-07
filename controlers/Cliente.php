@@ -30,8 +30,7 @@ class Cliente {
     */
 
     public function encarga(PrepararPizza $builder, $masa=null, $borde=null, $ingredientes=null) {
-        
-        $builder->crearPizza();
+        $builder->crearPizza(self::get_lastId());
         $builder->nombrePizza();
         $builder->amasar($masa);
         $builder->prepararBorde($borde);        
@@ -61,6 +60,17 @@ class Cliente {
                 unset($this->_pizzas[$clave]); 
             }      
         }
+    }
+    public function get_lastId(){
+        foreach ($this->_pizzas as $key => $pizza) {
+            $id=$pizza->getId();
+        }
+        if (empty($id)) {
+            return 0;
+        }else{
+            return $id;
+        }
+        
     }
 
 }
