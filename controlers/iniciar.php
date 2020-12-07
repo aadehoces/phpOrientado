@@ -11,7 +11,7 @@ require_once 'Cliente.php';
 			if ($mensaje=="true") {
 				$mensaje=$validar->val_contraseña($_POST['contraseña']);
 				if ($mensaje=="false") {
-					$login = new conexionDB();
+					$login = new Consultas();
 					$logeado=$login->logeo($_POST['email'],$_POST['contraseña']);
 					if ($logeado=="false") {
 						$mensaje="Usuario o contrseña incorrecta";
