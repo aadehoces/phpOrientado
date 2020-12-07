@@ -21,7 +21,7 @@ class AlGusto extends PrepararPizza {
     }
     
     public function precioPizza() {
-        $this->pizza->setPrecio('20,20');
+        $this->pizza->setPrecio('20.20');
     }
 }
 

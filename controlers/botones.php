@@ -7,8 +7,7 @@ class botones
 
 
 	public function cerrar(){
-		$cookie=new Cookies();
-		$cookie->delete_cookie("id_session");
+		
 	}
 }
 

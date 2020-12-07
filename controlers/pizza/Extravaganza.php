@@ -21,7 +21,7 @@ class Extravaganza extends PrepararPizza {
     }
 
     public function precioPizza() {
-        $this->pizza->setPrecio('14,50');
+        $this->pizza->setPrecio('14.50');
     }
 }
 

@@ -19,8 +19,8 @@ require_once 'Cliente.php';
 						$sesion=new session();
 						$cookie=new Cookies();
 						$cookie->create_cookie("id_session",$sesion->get_id());
-						$cliente=new cliente();
-						$sesion->setAttribute("cliente", $cliente);
+						
+						$sesion->setAttribute("cliente", $logeado);
 						header('Location: ../index.php');
 					}
 				}

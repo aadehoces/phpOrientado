@@ -15,7 +15,7 @@ class Cookies {
     }
 
     public function delete_cookie($name){
-        unset($_COOKIE[$name]);
+        setcookie($name, null, -1, '/');
     }
 }
 ?>

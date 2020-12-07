@@ -2,6 +2,7 @@
 require_once 'controlers/botones.php';
 require_once 'controlers/Sessions.php';
 require_once 'controlers/Cliente.php';
+require_once 'controlers/Cookie.php';
 require_once 'controlers/pizza/Pizza.php';
 require_once 'controlers/pizza/PrepararPizza.php';
 
@@ -61,9 +62,9 @@ if (isset($_COOKIE["id_session"])) {
        $sesion->setAttribute("cliente", $Cliente);
     }elseif (isset($_POST["Cerrar"])) {
       $sesion->destroySession();
-      $botones=new botones();
-      $botones->cerrar();
-
+      $cookie=new Cookies();
+      $cookie->delete_cookie("id_session"); 
+      header('Location: index.php');
     }
 
   }
