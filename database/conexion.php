@@ -30,7 +30,7 @@ class ConnectDb {
      return self::$instance;
    }
    
-   //Llamamos a la conexiona la DB
+   //Llamamos a la conexiona de la DB
    public function getConnection()
    {
      return $this->conn;
