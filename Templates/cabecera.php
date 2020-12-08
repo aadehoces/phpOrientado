@@ -10,18 +10,17 @@ require_once 'controlers/pizza/Carbonara.php';
 require_once 'controlers/pizza/Extravaganza.php';
 require_once 'controlers/pizza/BBQ.php';
 require_once 'controlers/pizza/AlGusto.php';
-if ($_POST) {
-    
 
-
-  }
-
+//comprueba si se ha iniciado sesion
 if (isset($_COOKIE["id_session"])) {
   $sesion=new Session($_COOKIE["id_session"]);
   $Cliente=$sesion->getAttribute("cliente");
   if ($_POST) {
+    //comprueba si le hemos dado al boton encargar
     if (isset($_POST["encargar"])) {
+      //comprueba si la pizza es al gusto
       if ($_POST["encargar"]=="AlGusto") {
+        //añade ingredientes a un array
         $Ingredientes = array();
         if (isset($_POST["queso"])) {
           $Ingredientes[]=$_POST["queso"];
@@ -50,21 +49,25 @@ if (isset($_COOKIE["id_session"])) {
         if (isset($_POST["kebab"])) {
           $Ingredientes[]=$_POST["kebab"];
         }
-
+        //encarga pizza al gusto
         $Cliente->encarga(new AlGusto(),$_POST["masa"],$_POST["bordes"],$Ingredientes);
       }else{
+        //encrga pizzas
         $Cliente->encarga(new $_POST["encargar"]());
       }
+      //guardamos cambios del objeto cliente
       $sesion->setAttribute("cliente", $Cliente);
-      
+      //si le damos a eliminar
     }elseif (isset($_POST['eliminar'])) {
       $Cliente->deletePizza($_POST['id']);
        $sesion->setAttribute("cliente", $Cliente);
+      //si le damos a cerrar
     }elseif (isset($_POST["Cerrar"])) {
       $sesion->destroySession();
       $cookie=new Cookies();
       $cookie->delete_cookie("id_session"); 
       header('Location: index.php');
+    //si le damos a confirmr
     }elseif (isset($_POST["confirmar"])) {
       $Cliente->borrarPizzas();
       $sesion->setAttribute("cliente", $Cliente);

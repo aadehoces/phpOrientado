@@ -1,5 +1,5 @@
 <?php
-
+//comprueba cntidad de productos en el carrito
 if ($Cliente->contarPizzas()==0) {?>
 	<div class="container">
 		<div class="row">
@@ -13,6 +13,7 @@ if ($Cliente->contarPizzas()==0) {?>
 	</div>
 	<footer class="page-footer font-small bg-dark pt-4  fixed-bottom">
 <?php
+//muestra carrito
 }else {?>
 	<div class="container">
 		<div class="row">
