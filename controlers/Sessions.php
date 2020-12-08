@@ -32,11 +32,10 @@ class Session {
     public function get_id(){
         return session_id();
     }
+    
     public function destroySession() {
         session_destroy();
     }
 }
-
-
 
 ?>

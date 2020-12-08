@@ -4,6 +4,7 @@ require_once 'consultas.php';
 require_once 'Sessions.php';
 require_once 'Cookie.php';
 require_once 'Cliente.php';
+
 	if ($_POST) {
 		if (isset($_POST['login'])) {
 			$validar=new validar();
@@ -28,4 +29,5 @@ require_once 'Cliente.php';
 			}
 		}
 	}
+	
 ?>

@@ -1,9 +1,10 @@
 <?php
-class validar
-{
+
+class validar {
 	
-	function __construct(){}
-	public function val_email($email=null){
+	function __construct() {}
+
+	public function val_email($email=null) {
 		if (empty($email)) {
 			return "Introduce email";
 		}else{
@@ -14,7 +15,7 @@ class validar
 			}
 		}
 	}
-	public function val_contraseña($contraseña=null){
+	public function val_contraseña($contraseña=null) {
 		if (empty($contraseña)) {
 			return "Introduce contraseña";
 		}else{
@@ -25,7 +26,7 @@ class validar
 			}
 		}
 	}
-	public function val_nombre($nombre=null){
+	public function val_nombre($nombre=null) {
 		if (empty($nombre)) {
 			return "Introduce nombre";
 		}else{
@@ -36,7 +37,7 @@ class validar
 			}
 		}
 	}
-	public function val_apellidos($apellidos=null){
+	public function val_apellidos($apellidos=null) {
 		if (empty($apellidos)) {
 			return "Introduce Apellidos";
 		}else{
@@ -47,14 +48,14 @@ class validar
 			}
 		}
 	}
-	public function val_direccion($direccion=null){
+	public function val_direccion($direccion=null) {
 		if (empty($direccion)) {
 			return "Introduce Direccion";
 		}else{
   				return true;
 		}
 	}
-	public function val_telefono($telefono=null){
+	public function val_telefono($telefono=null) {
 		if (empty($telefono)) {
 			return "Introduce telefono";
 		}else{
@@ -66,4 +67,5 @@ class validar
 		}
 	}
 }
+
 ?>

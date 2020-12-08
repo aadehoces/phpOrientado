@@ -1,8 +1,6 @@
 <?php
 
-class Cookies {
-
-    
+class Cookies {    
 
     public function __construct() {}
 

@@ -1,6 +1,7 @@
 <?php
 require_once 'validacion.php';
 require_once 'consultas.php';
+
 	if ($_POST) {
 		if (isset($_POST['registro'])) {
 			$validar=new validar();
@@ -34,4 +35,5 @@ require_once 'consultas.php';
 			}
 		}
 	}
+	
 ?>
