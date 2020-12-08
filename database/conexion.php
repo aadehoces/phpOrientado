@@ -19,7 +19,8 @@ class ConnectDb {
      array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
    }
 
-   //Llamamos a la instancia
+   //Llamamos a la instancia con la condicion de que solo se crea la conexion si
+   // ese objeto no ha sido creado anteriormente
    public static function getInstance()
    {
      if(!self::$instance)
