@@ -5,7 +5,7 @@
 class AlGusto extends PrepararPizza {
 
     public function nombrePizza() {
-        $this->pizza->setNombre('Al_gusto');
+        $this->pizza->setNombre('Al gusto');
     }
 
     public function amasar($masa) {
