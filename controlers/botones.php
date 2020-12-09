@@ -51,7 +51,7 @@ class botones{
 								if ($mensaje=="true") {
 									//registrar
 									$consultas=new Consultas();
-									$regis=$consultas->registro($nombre,$apellidos,$email,$direccion,$contraseña,$telefono);
+									$regis=$consultas->registro($nombre,$apellidos,$contraseña,$telefono,$email,$direccion);
 									if ($regis=="false") {
 										return "El email ya está registrado.";
 									}elseif($regis=="true"){
