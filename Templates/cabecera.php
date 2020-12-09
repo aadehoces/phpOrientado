@@ -1,6 +1,7 @@
 <?php
 
 require_once 'controlers/Sessions.php';
+require_once 'controlers/botones.php';
 require_once 'controlers/Cliente.php';
 require_once 'controlers/Cookie.php';
 require_once 'controlers/pizza/Pizza.php';
@@ -16,6 +17,7 @@ if (isset($_COOKIE["id_session"])) {
   $sesion=new Session($_COOKIE["id_session"]);
   $Cliente=$sesion->getAttribute("cliente");
   if ($_POST) {
+    $boton= new botones();
     //comprueba si le hemos dado al boton encargar
     if (isset($_POST["encargar"])) {
       //comprueba si la pizza es al gusto
@@ -38,7 +40,7 @@ if (isset($_COOKIE["id_session"])) {
           $Ingredientes[]=$_POST["aceitunas"];
         }
         if (isset($_POST["piminetos"])) {
-          $Ingredientes[]=$_POST["piminetos"];
+          $Ingredientes[]=$_POST["pimiento"];
         }
         if (isset($_POST["cebolla"])) {
           $Ingredientes[]=$_POST["cebolla"];
@@ -50,29 +52,25 @@ if (isset($_COOKIE["id_session"])) {
           $Ingredientes[]=$_POST["kebab"];
         }
         //encarga pizza al gusto
-        $Cliente->encarga(new AlGusto(),$_POST["masa"],$_POST["bordes"],$Ingredientes);
+        $boton->encargar($Cliente,$_POST["encargar"],$_POST["masa"],$_POST["bordes"],$Ingredientes);
       }else{
         //encrga pizzas
-        $Cliente->encarga(new $_POST["encargar"]());
+        $boton->encargar($Cliente,$_POST["encargar"]);
       }
       //guardamos cambios del objeto cliente
       $sesion->setAttribute("cliente", $Cliente);
       //si le damos a eliminar
     }elseif (isset($_POST['eliminar'])) {
-      $Cliente->deletePizza($_POST['id']);
-       $sesion->setAttribute("cliente", $Cliente);
+      $boton->eliminar($Cliente,$sesion);
+      
       //si le damos a cerrar
     }elseif (isset($_POST["Cerrar"])) {
-      $sesion->destroySession();
-      $cookie=new Cookies();
-      $cookie->delete_cookie("id_session"); 
-      header('Location: index.php');
+      $boton->cerrar($sesion);
+    
     //si le damos a confirmr
     }elseif (isset($_POST["confirmar"])) {
-      $Cliente->borrarPizzas();
-      $sesion->setAttribute("cliente", $Cliente);
-      header('Location: index.php');
-
+      
+      $boton->confirmar($Cliente,$sesion);
     }
 
   }

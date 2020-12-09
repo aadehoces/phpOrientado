@@ -39,7 +39,7 @@
             return $cliente;
             
         } else {
-            return false;
+            return "false";
         }
     
     }
@@ -54,7 +54,7 @@
         $numero_registro=$consulta1->rowCount();
         //Si ya hay una cuenta con ese correo no se crea la cuenta
         if($numero_registro!=0){
-            return false;
+            return "false";
         }
         //Si no hay nadie con ese correo se puede crear la cuenta
         else {
