@@ -17,5 +17,5 @@ El Uml completo quedaría así
 ![ScreenShot](https://raw.github.com/aadehoces/phpOrientado/master/UML/entero.png)
 Proyecto realizado por: Adrian, Raul y Rafa.
 
-Web:https://adriandehoces.informaticailiberis.com/
+Web:https://adriandehoces.informaticailiberis.com/Pizzeria
 
